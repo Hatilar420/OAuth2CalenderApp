@@ -19,8 +19,6 @@ def GoogleCalendarInitView(request):
         access_type='offline',
         include_granted_scopes='true',
     )
-    print("state 1 here : ")
-    print(state)
     request.session['google_auth_state'] = state
     return redirect(authorization_url)
 
@@ -42,6 +40,4 @@ def GoogleCalendarRedirectView(request):
     events_result = service.events().list(calendarId='primary', timeMin=datetime.utcnow().isoformat() + 'Z',
                                         maxResults=10, singleEvents=True, orderBy='startTime').execute()
     events = events_result.get('items', [])
-    print("here lode losun")
-    print(events)
     return Response(status=200,data=events)
