@@ -132,5 +132,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+client_secret.json
 
 frontend/node_modules
